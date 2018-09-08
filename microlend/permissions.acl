@@ -1,0 +1,126 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+/**
+ * Sample access control list.
+ */
+
+rule EveryBorrowerCanSubmitProposalTransactions {
+    description: "Allow all participants to submit proposal transactions"
+    participant: "test.borrower"
+    operation: CREATE
+    resource: "test.Proposal"
+    action: ALLOW
+}
+
+rule EveryBorrowerCanSubmitRetrieveTransactions {
+    description: "Allow all participants to submit retrieve transactions"
+    participant: "test.borrower"
+    operation: CREATE
+    resource: "test.retrieve"
+    action: ALLOW
+}
+
+rule EveryBorrowerCanSubmitManageAccountTransactions {
+    description: "Allow all participants to submit manage account transactions"
+    participant: "test.borrower"
+    operation: CREATE
+    resource: "test.accountManage"
+    action: ALLOW
+}
+
+rule BorrowerHasFullAccessToReadTheirAssets {
+    description: "lender has full access to their assets"
+    participant(p): "test.borrower"
+    operation: READ
+    resource(r): "test.bAccount"
+    condition: (r.iD.getIdentifier() === p.getIdentifier())
+    action: ALLOW
+}
+
+rule LenderHasFullAccessToReadTheirAssets {
+    description: "lender has full access to their assets"
+    participant(p): "test.lender"
+    operation: READ
+    resource(r): "test.lAccount"
+    condition: (r.Id5.getIdentifier() === p.getIdentifier())
+    action: ALLOW
+}
+
+rule BorrowerHasAccessToUpdateTheirDetails {
+    description: "borrower has access to their assets"
+    participant(p): "test.borrower"
+    operation: READ
+    resource(r): "test.borrower"
+    condition: (r.getIdentifier() === p.getIdentifier())
+    action: ALLOW
+}
+
+rule LenderHasAccessToUpdateTheirDetails {
+    description: "borrower has access to their assets"
+    participant(p): "test.lender"
+    operation: READ
+    resource(r): "test.lender"
+    condition: (r.getIdentifier() === p.getIdentifier())
+    action: ALLOW
+}
+
+rule BorrowerHasNoAccessToLenderAssets {
+    description: "borrower has no access to see lender's assets"
+    participant: "test.borrower"
+    operation: ALL
+    resource: "test.lAccount"
+    action: DENY
+}
+
+rule LenderHasAccessToSeeBorrowerAssets {
+    description: "lender has access to see borrower assets"
+    participant: "test.lender"
+    operation: READ
+    resource: "test.bAccount"
+    action: ALLOW
+
+}
+
+rule LenderHasNoAccessUpdateBorrowerAssets {
+    description: "lender has no access to update borrower assets"
+    participant: "test.lender"
+    operation: UPDATE
+    resource: "test.bAccount"
+    action: DENY
+}
+
+rule SystemACL {
+  description:  "System ACL to permit all access"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
+
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}

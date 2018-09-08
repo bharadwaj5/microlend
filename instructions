@@ -1,0 +1,33 @@
+HYPERLEDGER FABRIC AND COMPOSER SETUP : 
+
+$ mkdir ~/fabric-tools && cd ~/fabric-tools
+
+$ curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.zip
+unzip fabric-dev-servers.zip
+
+--> Above commands creates a development environment. Now migrate into fabric-tools folder 
+
+$ chmod +x start.sh && chmod +x stop.sh
+ 
+$ ./start.sh --> This command starts the network and deploys the chaincode to the network 
+
+$ composer-rest-server -c admin@microlend --> This enables REST server on port 3000 with networkAdmin as operator.
+
+ISSUEING IDCARD TO A PARTICIPANT : 
+
+--> We can find ADMIN above CREATE NEW PARTICIPANT in the playground. Pressing 'admin' button gives us 'ID Registry' We have to goto idRegistry where we can give cards to the participants. 
+
+STARTING NODE APP : 
+
+$ npm start --> this command starts the node application and this command is to be given inside node_app folder.
+
+STOPPING APPLICATION AND BLOCKCHAIN :
+
+$ ./stop.sh
+
+ARCHITECTURE : 
+
+-Node application uses mongoDB data base.
+-'app' is the name of mongo database.
+-users is the collection.
+-Please create the above mongoDB specifications.

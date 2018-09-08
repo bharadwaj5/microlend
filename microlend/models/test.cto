@@ -1,0 +1,167 @@
+namespace test
+
+asset bAccount identified by accId {
+  o String accId 
+  --> borrower iD
+  o Double amt
+  o String industry
+  o String Company
+  o String domainAddress
+  o Double lamnt
+  o Double emiamt
+  o Double rate
+  o Double duedate
+  o Double n
+  o String type
+  o String desc
+  o Double exp
+  o Double rd
+  o Double sal
+  o Double adv
+  o Double oth
+  o Double cnt
+  o Double cibil
+}
+
+asset lAccount identified by Accid {
+  o String Accid
+  --> lender Id5
+  o Double amt1
+  o Double count
+  o String msg
+  o String assetId
+  o Double tlmnt
+}
+
+transaction lenderDeposit {
+  --> lAccount lac
+  o Double Amount
+}
+
+transaction borrowerDeposit {
+  --> bAccount bac
+  o Double Amount
+}
+
+transaction cibilsc {
+  --> bAccount bac
+  o Double cibil
+}
+
+transaction colateral {
+  --> bAccount bac
+  --> lAccount lac
+  o String assetId
+}
+
+transaction emi {
+  --> bAccount bac
+  --> lAccount lac
+}
+
+transaction lendproposal {
+  o String detail
+  --> lAccount lac
+  --> bAccount bac
+  o Double rate
+}
+
+transaction retrieve {
+  o String statement
+  --> lAccount lAc
+  --> bAccount bAc
+}
+
+transaction message {
+  --> bAccount bac
+  --> lAccount lac
+}
+
+transaction loan {
+  o String Description
+  --> lAccount lendId
+  --> bAccount Id
+  o Double amount
+  o Double rate
+  o Double duedate
+  o Double n 
+  o String type
+}
+
+transaction l2l {
+  --> lAccount from
+  --> lAccount to
+  o Double amount2
+}
+
+transaction l2b {
+  --> lAccount from
+  --> bAccount to
+  o Double amount2
+}
+
+transaction b2b {
+  --> bAccount from
+  --> bAccount to
+  o Double amount2
+}
+
+event rEvent {
+  o String detail
+  --> bAccount iden
+}
+
+transaction Proposal {
+  o String description
+  --> bAccount Id
+  o Double amnt
+  o Double dur
+}
+
+event request {
+  --> bAccount acid
+  o String detail
+  o Double amnt
+  o Double Dur
+}
+
+transaction urgAmt {
+  o String Description1
+  --> lAccount lendId
+  --> bAccount Id3
+  o Double amount1
+}
+
+participant borrower identified by bId {
+  o String bId
+  o String firstName
+  o String lastName
+  o Double Phno
+  o String mailid
+  o Address address
+}
+
+concept Address {
+  o String Address
+  o String Dno
+  o String Street
+  o String City
+  o Double pin
+}
+
+participant lender identified by lenId {
+  o String lenId
+  o String Firstname
+  o String Lastname
+  o Double phno
+  o String mailId
+}
+
+transaction accountManage {
+  --> bAccount bac
+  o Double exp
+  o Double rd
+  o Double sal
+  o Double adv
+  o Double oth
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     --}}
+    <!-- Bootstrap CSS -->
+    {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+    <h2 style="text-align: center;padding-bottom: 0.1in;font-size: 0.2in" >Your Dasboard</h2>
+    <h3 style="text-align: center;padding-bottom: 0.1in;font-size: 0.2in ">Account ID : <pre3></pre3></h3>
+    <table class="table">
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in"> Amount(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre1></pre1></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Loan(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre4></pre4></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Credit score</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre10></pre10></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">CIBIL score</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre11></pre11></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in"></td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"></td>
+            </tr>
+    
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Total Expenditure(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre5></pre5></td>
+            </tr>
+            <tr style="margin-bottom:15px">
+                <td style="padding-left: 1in;font-size: 0.2in">Raw Materials(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre2></pre2></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in" > R & D(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre6></pre6></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Salaries(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre7></pre7></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Advertisement(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre8></pre8></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Others(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre9></pre9></td>
+            </tr>
+        </tbody>
+    </table> 
+
+  <script type="text/javascript">
+
+    var url = "http://localhost:3001/api/test.bAccount";
+        var Display = document.querySelector('pre1');
+        var Display2 = document.querySelector('pre2');
+        var Display4 = document.querySelector('pre4');
+        var Display5 = document.querySelector('pre5');
+        var Display6 = document.querySelector('pre6');
+        var Display7 = document.querySelector('pre7');
+        var Display3 = document.querySelector('pre3');
+        var Display8 = document.querySelector('pre8');
+        var Display9 = document.querySelector('pre9');
+        var Display10 = document.querySelector('pre10');
+        var Display11 = document.querySelector('pre11');
+        let obj;
+        fetch(url).then(function(response) {
+            response.json().then(function(obj) {
+                var amt = obj[0].amt;
+                var lamt = obj[0].lamnt;
+                var exp = Number(obj[0].exp);
+                var rd = Number(obj[0].rd);
+                var sal = Number(obj[0].sal);
+                var add = Number(amt) + Number(lamt);
+                var adv = Number(obj[0].adv);
+                var oth = Number(obj[0].oth);
+                var a = obj[0].accId;
+                Display.textContent = add;
+                Display2.textContent = exp;
+                Display4.textContent = lamt;
+                Display5.textContent = exp + rd + sal + oth + adv;
+                Display6.textContent = rd;
+                Display7.textContent = sal;
+                Display3.textContent = a;
+                Display8.textContent = adv;
+                Display9.textContent = oth;
+                Display10.textContent = Number(obj[0].cnt);
+                Display11.textContent = Number(obj[0].cibil);
+            });
+        });
+  </script>
+</head>
+ </html>

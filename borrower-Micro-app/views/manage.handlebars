@@ -1,0 +1,27 @@
+ 
+ <h3 class="text-muted">Manage Account</h3><br>
+ {{#if test}}
+        <div class="alert alert-success">Transaction submitted successfully</div> 
+    {{/if}}
+
+   <form method="post" action="/users/manage">
+   <div class="form-group">
+    <input type="text" class="form-control" placeholder="Your account ID " name="bid">
+   </div>
+   <div class="form-group">
+    <input type="text" class="form-control" placeholder="Raw Materials" name="exp">
+   </div>
+   <div class="form-group">
+    <input type="text" class="form-control" placeholder="R&D" name="rd">
+   </div>
+   <div class="form-group">
+    <input type="text" class="form-control" placeholder="Salaries" name="sal">
+   </div>
+   <div class="form-group">
+    <input type="text" class="form-control" placeholder="Advertisment" name="adv">
+   </div>
+   <div class="form-group">
+    <input type="text" class="form-control" placeholder="Others" name="oth">
+   </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+    </form>

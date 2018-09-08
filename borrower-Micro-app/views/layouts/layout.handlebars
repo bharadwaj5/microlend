@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Microlend-borrower</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<div class="container">
+      <div class="header clearfix">
+        <h2 class="text-muted" style="text-align:center; background-color:black;color:white;padding:10px; font-size: 0.5in">Microlend</h2><br>
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            {{#if user}}
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/">About</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="http://localhost:3001/explorer/#/">LEDGER</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/dashboard">Dashboard</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/proposal">Proposal</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/retrieve">Repay</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/message">Message</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/emi">EMI</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/bdeposit">Deposit</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/collateral">Collateral</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/manage">Manage-Account</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/cibil">CIBIL</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/faq">FAQ</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/logout">Logout</a></li>
+            {{else}}
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/login">Login</a></li>
+              <li style="font-size: 0.15in;border:2px solid black;margin-right:1px;" role="presentation"><a href="/users/register">Register</a></li>
+            {{/if}}
+          </ul>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+          
+          {{{body}}}
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p style="font-size: 0.2in">&copy; 2018 Hovers, Inc.</p>
+      </footer>
+
+    </div>
+</body>
+</html>

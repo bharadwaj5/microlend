@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+
+</style>
+</head>
+<body style="padding: 0.45in">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
+        <div class="w3-container">
+                <div class="w3-panel w3-metro-darken">
+                 <h2 style="text-align: center">FAQs</h2>
+                 </div>
+             </div>  
+<div style="padding: 0.2in">      
+<button class="collapsible" >What is Micro-lend ? </button>
+<div class="content">
+  <p>Micro-lend is a peer to peer lending platform, which connects individual who wants to earn higher returns to those who wants to borrow money with transparency and at low cost.</p>
+</div>
+<div style="padding: 0.02in"></div>
+<button class="collapsible">How do I get started ? </button>
+<div class="content">
+    <p>Simply click on the Sign Up Now icon and register through the simple step by step process as instructed. Once you have filled the basic information required, paid the registration fees and uploaded the documents required, Our team will identity-verify, credit-check and risk-assess your profile. If qualified, your registration as a Borrower/Lender will be approved.</p>
+</div>
+<div style="padding: 0.02in"></div>
+<button class="collapsible">What is tenure ? </button>
+<div class="content">
+    <p>   Tenure is the time frame for which loan is offered.
+    </p>
+</div>
+<div style="padding: 0.02in"></div>
+<button class="collapsible"> Can I choose my monthly repayment date ? </button>
+<div class="content">
+    <p>  Yes
+    </p>
+</div>
+<div style="padding: 0.02in"></div>
+<button class="collapsible">  How are repayments calculated ? </button>
+<div class="content">
+    <p> Repayments are equated monthly installments calculated using the reducing balance method. Your installment per month will remain the same throughout the tenure of your loan. The first installment may be different depending on the date of disbursal.
+    </p>
+</div>
+<div style="padding: 0.02in"></div>
+<button class="collapsible"> Can I be both, a Lender and a Borrower ?
+    </button>
+<div class="content">
+    <p>Yes </p>
+</div>
+<div style="padding: 0.02in"></div>
+<button class="collapsible">Is my data protected ? </button> 
+<div class="content">
+    <p>Yes, We have defined acccess control files which gives the rules by which the participants in the network can act upon. </p>
+</div>
+<div style="padding: 0.02in"></div>
+<button class="collapsible">Who can be lender on Mirco-lend ?</button> 
+<div class="content">
+    <p>Any Indian citizen, who has a valid government ID, can become lender on Micro-lend.</p>
+</div>
+<div style="padding: 0.02in"></div>
+<button class="collapsible">Who can be borrower on Mirco-lend ?</button> 
+<div class="content">
+    <p>Any Indian citizen, who has a valid government ID, can become borrower on Micro-lend </p>
+</div>
+</div>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+</script>
+</body>
+</html>

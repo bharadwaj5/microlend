@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <h2 style="text-align: center;padding-bottom: 0.1in;font-size: 0.25in" >Your Dasboard</h2>
+    <h3 style="text-align: center;padding-bottom: 0.1in;font-size: 0.2in ">Account ID : <pre13></pre13></h3>
+    <table class="table">
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in"> Amount(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre11></pre11></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Times you gave loan</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre12></pre12></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Total loan amount(&#8377)</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre16></pre16></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">Message</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre14></pre14></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 1in;font-size: 0.2in">AssetId</td>
+                <td style="padding-right: 0.35in;font-size: 0.2in"><pre15></pre15></td>
+            </tr>
+        </tbody>
+    </table> 
+    <script type="text/javascript">
+
+        var url = "http://localhost:3002/api/test.lAccount";
+        var Display = document.querySelector('pre11');
+        var Display2 = document.querySelector('pre12');
+        var Display3 = document.querySelector('pre13');
+        var Display26 = document.querySelector('pre16');
+        var Display4 = document.querySelector('pre14');
+        var Display5 = document.querySelector('pre15');
+        let Obj;
+        fetch(url).then(function(response) {
+            response.json().then(function(Obj) {
+                Display3.textContent = Obj[0].Accid;
+                Display.textContent = Obj[0].amt1;
+                Display2.textContent = Obj[0].count;
+                Display4.textContent = String(Obj[0].msg);
+                Display5.textContent = String(Obj[0].assetId);
+                Display26.textContent = Obj[0].tlmnt;
+            });
+        });
+  </script>
+ </html>
